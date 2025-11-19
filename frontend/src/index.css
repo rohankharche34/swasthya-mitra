@@ -1,0 +1,176 @@
+/* Import a cleaner, more modern font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
+/* Define all colors as CSS variables.
+  :root will be used for [data-theme='light']
+*/
+:root {
+  --swasthya-primary: #006442;
+  --swasthya-secondary: #40C090;
+  --swasthya-dark: #013220;
+  
+  /* Theme-specific colors */
+  --color-bg-primary: #fcfcfc;       /* Main page background */
+  --color-bg-secondary: #f0fcf7;     /* Lighter sections (auth page, hero) */
+  --color-bg-card: #ffffff;          /* Card backgrounds */
+  --color-text-primary: #212529;     /* Main text */
+  --color-text-secondary: #5a5a5a;   /* Muted text */
+  --color-border: #e0e0e0;           /* Borders, dividers */
+  --color-shadow: rgba(0, 100, 66, 0.1);
+  --color-shadow-hover: rgba(0, 100, 66, 0.15);
+  --color-shadow-strong: rgba(0, 0, 0, 0.1);
+}
+
+/* Define the [data-theme='dark'] palette.
+  This overrides the :root variables when active.
+*/
+[data-theme='dark'] {
+  --swasthya-primary: #008053;
+  --swasthya-secondary: #40C090;
+  --swasthya-dark: #f0fcf7; /* Footer text in dark mode */
+  
+  /* Theme-specific colors */
+  --color-bg-primary: #121212;
+  --color-bg-secondary: #1a1a1a;
+  --color-bg-card: #242424;
+  --color-text-primary: #f5f5f5;
+  --color-text-secondary: #a0a0a0;
+  --color-border: #3a3a3a;
+  --color-shadow: rgba(64, 192, 144, 0.1);
+  --color-shadow-hover: rgba(64, 192, 144, 0.15);
+  --color-shadow-strong: rgba(0, 0, 0, 0.2);
+}
+
+/* --- Global Styles --- */
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* === Button Styles === */
+/* (These styles largely pull from the theme variables, so they update automatically) */
+.btn-primary, .btn-primary:hover, .btn-primary:active {
+  background-color: var(--swasthya-primary) !important;
+  border-color: var(--swasthya-primary) !important;
+  box-shadow: 0 4px 12px rgba(0, 100, 66, 0.25);
+  transition: all 0.3s ease;
+}
+/* ... (rest of button styles are fine from previous step) ... */
+
+/* === Component-Specific Theme Updates === */
+.hero-gradient {
+  background: linear-gradient(120deg, var(--color-bg-secondary) 0%, var(--color-bg-card) 100%);
+}
+
+.how-it-works-card {
+  transition: all 0.3s ease;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg-card);
+  box-shadow: 0 4px 15px var(--color-shadow);
+}
+.how-it-works-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px var(--color-shadow-hover) !important;
+}
+
+.icon-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--swasthya-primary);
+}
+.how-it-works-icon {
+  font-size: 2.5rem;
+  color: var(--swasthya-secondary);
+}
+.feature-icon {
+  font-size: 1.5rem;
+  margin-bottom: 3px; 
+}
+
+/* === Auth Page Styling === */
+.auth-page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg-secondary);
+}
+.auth-brand-section {
+  background: linear-gradient(135deg, var(--swasthya-primary), var(--swasthya-secondary));
+  color: white;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+.auth-form-section {
+  padding: 3rem;
+  background: var(--color-bg-card);
+}
+.auth-card {
+  border: 1px solid var(--color-border);
+  box-shadow: 0 10px 40px var(--color-shadow-strong);
+  overflow: hidden;
+}
+.form-label, .form-control {
+  color: var(--color-text-primary);
+}
+.form-control {
+  background-color: var(--color-bg-primary);
+  border-color: var(--color-border);
+}
+.form-control:focus {
+  background-color: var(--color-bg-primary);
+  border-color: var(--swasthya-primary);
+  color: var(--color-text-primary);
+}
+
+/* === Navbar, Footer, Cards === */
+.navbar-light.bg-white, .navbar-dark.bg-dark {
+  background-color: var(--color-bg-card) !important;
+  box-shadow: 0 2px 10px var(--color-shadow-strong);
+}
+.card {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+}
+.footer-dark {
+  background-color: var(--swasthya-dark);
+  color: var(--color-bg-primary);
+}
+.dropdown-menu {
+  background-color: var(--color-bg-card);
+  border-color: var(--color-border);
+}
+.dropdown-item {
+  color: var(--color-text-primary);
+}
+.dropdown-item:hover {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+}
+
+/* === NEW: Pulsing Animation for Hero Icon === */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.pulsing-icon {
+  animation: pulse 2s infinite ease-in-out;
+  color: var(--swasthya-secondary);
+}
