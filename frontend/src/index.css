@@ -164,7 +164,16 @@ html[data-theme='dark'] .text-muted {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100%;
+  height: 30rem;
+}
+.auth-brand-section-signup {
+  background: linear-gradient(135deg, var(--swasthya-primary), var(--swasthya-secondary));
+  color: white;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 40rem;
 }
 
 .auth-form-section {
