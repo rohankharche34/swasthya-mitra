@@ -1,0 +1,17 @@
+{
+  "fever": {
+    "severity": "medium",
+    "advice": "Stay hydrated and monitor temperature.",
+    "doctor_after_days": 3
+  },
+  "headache": {
+    "severity": "low",
+    "advice": "Rest, reduce screen time, and hydrate.",
+    "doctor_after_days": 2
+  },
+  "cough": {
+    "severity": "low",
+    "advice": "Warm fluids and rest may help.",
+    "doctor_after_days": 7
+  }
+}
